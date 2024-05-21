@@ -37,7 +37,7 @@ add_executable(${PROJECT_NAME}
     "src/metro.cpp"
     "src/main.cpp"
     "src/raygui.h"
-    "src/sunny.h"
+    "src/ui.hpp"
 )
 target_link_libraries(${PROJECT_NAME} raylib)
 target_link_libraries(${PROJECT_NAME} effolkronium_random)

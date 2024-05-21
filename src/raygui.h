@@ -2031,7 +2031,7 @@ int GuiWindowBox(Rectangle bounds, const char* title) {
 // Window title bar height (including borders)
 // NOTE: This define is also used by GuiMessageBox() and GuiTextInputBox()
 #if !defined(RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT)
-#define RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT 38
+#define RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT 24
 #endif
 
     int result = 0;

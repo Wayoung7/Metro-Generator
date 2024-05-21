@@ -19,7 +19,7 @@ struct Config {
     int mapWidth = 1000;
     int mapHeight = 1000;
     int numLines = 7;
-    int numStaionsEachline = 9;
+    int numStaions = 8;
 };
 
 struct Station {
@@ -41,17 +41,14 @@ class Metro {
     Metro(const Config& cfg);
     void build();
     void draw(Camera2D cam) const;
+    void clearAndReconfigure(const Config& cfg);
 
   private:
-    int mapWidth;
-    int mapHeight;
+    Config cfg;
 
-    int cellWidth;
-    int cellHeight;
-
-    float stationDistance;
-    int numLines;
-    int lineStations;
+    const int cellWidth;
+    const int cellHeight;
+    const float stationDistance;
 
     std::map<int, Station> stations;
     std::vector<Line> lines;
@@ -61,6 +58,10 @@ class Metro {
     int addStation(Vector2 _pos);
     void addEdge(int from, int to, int lineId);
     std::optional<int> findNearStation(const Vector2& _pos, float range) const;
+    int getNewLineId() const;
+    bool revise();
+    int numSharedStation(int line1, int line2) const;
+    const Line& getLine(int _id) const;
 };
 
 const Color PALETTE[] = {Color{229, 20, 0, 255},   Color{96, 169, 23, 255},
