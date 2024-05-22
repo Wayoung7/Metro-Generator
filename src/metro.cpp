@@ -3,7 +3,6 @@
 #include "raymath.h"
 #include <algorithm>
 #include <cstdlib>
-#include <iostream>
 #include <iterator>
 #include <set>
 #include <vector>
@@ -43,7 +42,6 @@ void Metro::addEdge(int from, int to, int lineId) {
 void Metro::build() {
     int n_revise = 0;
     while (lines.size() < cfg.numLines) {
-        std::cout << lines.size() << '\n';
         // For each line
         auto id = getNewLineId();
         int start = 0;
@@ -212,7 +210,6 @@ bool Metro::revise() {
                     stations.erase(i);
                 }
                 lines.erase(l2);
-                std::cout << "erased: " << std::endl;
                 return true;
             }
         }

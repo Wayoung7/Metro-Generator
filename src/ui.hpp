@@ -18,7 +18,7 @@ class UI {
             WindowBoxActive = !GuiWindowBox(layoutRecs[0], WindowBoxText);
             if (GuiButton(layoutRecs[1], GenerateButtonText))
                 return GenerateAction;
-            GuiLine(layoutRecs[2], "Settings");
+            GuiLine(layoutRecs[2], "SETTINGS");
             if (GuiValueBox(layoutRecs[3], MapWidthValueBoxText, &cfg.mapWidth,
                             100, 10000, MapWidthValueBoxEditMode))
                 MapWidthValueBoxEditMode = !MapWidthValueBoxEditMode;
@@ -41,11 +41,11 @@ class UI {
 
   private:
     const char* WindowBoxText = "Metro Generator";
-    const char* GenerateButtonText = "Generate";
+    const char* GenerateButtonText = "GENERATE";
     const char* LinesSpinnerText = "Lines";
     const char* StationsSpinnerText = "Stations";
-    const char* MapWidthValueBoxText = "Map Width";
-    const char* MapHeightValueBoxText = "Map Height";
+    const char* MapWidthValueBoxText = "MapWidth";
+    const char* MapHeightValueBoxText = "MapHeight";
 
     Vector2 anchor01 = Vector2{20, 20};
 
