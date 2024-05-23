@@ -18,25 +18,6 @@ Tweak the parameters in **Settings** window and hit **Generate**. If you are usi
 
 ## Showcase
 
-
-<style>
-.container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 20px; /* Space between rows */
-}
-
-.container img {
-  width: 30%;
-  margin: 10px; /* Space between images */
-}
-
-.container.two img {
-  width: 45%;
-}
-</style>
-
 <div class="container">
   <img src="res/1.png" width=200 alt="Image 1">
   <img src="res/2.png" width=200 alt="Image 2">
