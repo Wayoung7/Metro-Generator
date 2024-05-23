@@ -20,21 +20,25 @@ class UI {
                 return GenerateAction;
             GuiLine(layoutRecs[2], "SETTINGS");
             if (GuiValueBox(layoutRecs[3], MapWidthValueBoxText, &cfg.mapWidth,
-                            100, 10000, MapWidthValueBoxEditMode))
+                            300, 6000, MapWidthValueBoxEditMode))
                 MapWidthValueBoxEditMode = !MapWidthValueBoxEditMode;
             if (GuiValueBox(layoutRecs[4], MapHeightValueBoxText,
-                            &cfg.mapHeight, 100, 10000,
+                            &cfg.mapHeight, 300, 6000,
                             MapHeightValueBoxEditMode))
                 MapHeightValueBoxEditMode = !MapHeightValueBoxEditMode;
             if (GuiSpinner(layoutRecs[5], StationsSpinnerText, &cfg.numStaions,
-                           5, 100, StationsSpinnerEditMode))
+                           5, 50, StationsSpinnerEditMode))
                 StationsSpinnerEditMode = !StationsSpinnerEditMode;
             if (GuiSpinner(layoutRecs[6], LinesSpinnerText, &cfg.numLines, 1,
-                           100, LinesSpinnerEditMode))
+                           20, LinesSpinnerEditMode))
                 LinesSpinnerEditMode = !LinesSpinnerEditMode;
+
+#if !defined(PLATFORM_WEB)
             if (GuiButton((layoutRecs[7]), "Export Image")) {
                 return ExportImageAction;
             }
+#endif
+
         }
         return NullAction;
     }

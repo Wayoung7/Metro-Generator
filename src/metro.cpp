@@ -1,6 +1,6 @@
 #include "metro.hpp"
-#include "raylib.h"
-#include "raymath.h"
+#include <raylib.h>
+#include <raymath.h>
 #include <algorithm>
 #include <cstdlib>
 #include <iterator>
@@ -61,7 +61,7 @@ void Metro::build() {
             for (const auto& [id, s] : temp) {
                 if (s.lines.size() <= 3) {
                     start = id;
-                    if (Random::get<bool>(-0.014f * cfg.numStaions + 0.43))
+                    if (Random::get<bool>(-0.018f * cfg.numStaions + 0.47))
                         break;
                 }
             }
@@ -74,8 +74,6 @@ void Metro::build() {
             Random::get<int>(cfg.numStaions - 3 < 1 ? 1 : cfg.numStaions - 3,
                              cfg.numStaions + 3)};
 
-        // bool has_tail_snap_and_apart = false;
-        // bool has_head_snap_and_apart = false;
         int tail_snap_acc = 0;
         int head_snap_acc = 0;
 
@@ -311,8 +309,6 @@ void Metro::draw(Camera2D cam) const {
 
     // Draw stations
     for (const auto& [_, s] : stations) {
-        // DrawCircleV(s.pos, 10.f, BLACK);
-        // DrawCircleV(s.pos, 7.f, RAYWHITE);
         if (s.lines.size() == 1) {
             auto lineId = *s.lines.begin();
             auto offset = Vector2Zero();

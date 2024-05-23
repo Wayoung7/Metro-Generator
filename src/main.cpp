@@ -10,14 +10,16 @@
 #define RAYGUI_IMPLEMENTATION
 #include <raygui.h>
 
-constexpr static const int windowWidth = 1600;
-constexpr static const int windowHeight = 1000;
+constexpr static const int windowWidth = 1200;
+constexpr static const int windowHeight = 800;
 
 Config cfg;
 UI ui;
+
 float scaleFactor = std::min(
     static_cast<float>(windowWidth) / static_cast<float>(cfg.mapWidth),
     static_cast<float>(windowHeight) / static_cast<float>(cfg.mapHeight));
+
 RenderTexture2D metroTex;
 Camera2D cam{Vector2{windowWidth / 2.f, windowHeight / 2.f}, Vector2Zero(), 0.f,
              scaleFactor};
@@ -65,7 +67,7 @@ int main() {
 
     SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(windowWidth, windowHeight, "Metro Generator - by Wayoung7");
-    GuiLoadStyle("../light.rgs");
+    GuiLoadStyle("light.rgs");
     metro.build();
     metroTex = genRenderTexture(metro, cam);
 
@@ -77,6 +79,7 @@ int main() {
         UpdateDrawFrame();
     }
 #endif
+
     UnloadRenderTexture(metroTex);
     CloseWindow();
     return 0;
