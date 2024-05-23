@@ -39,7 +39,8 @@ endif()
 add_subdirectory(third_party/random)
 
 include_directories(src third_party)
-add_executable(${PROJECT_NAME} WIN32
+
+set(SOURCES
   "src/metro.hpp"
   "src/metro.cpp"
   "src/main.cpp"
@@ -48,13 +49,22 @@ add_executable(${PROJECT_NAME} WIN32
   "resources.o"
 )
 
-set_target_properties(${PROJECT_NAME} PROPERTIES
-  WIN32_EXECUTABLE TRUE
-  LINK_FLAGS_RELEASE "/SUBSYSTEM:WINDOWS"
-)
+if(WIN32)
+  add_executable(${PROJECT_NAME} WIN32
+    ${SOURCES}
+  )
+else()
+  add_executable(${PROJECT_NAME}
+    ${SOURCES}
+  )
+endif()
 
 if(WIN32)
-    set_source_files_properties(resources.rc PROPERTIES HEADER_FILE_ONLY TRUE)
+  set_target_properties(${PROJECT_NAME} PROPERTIES
+    WIN32_EXECUTABLE TRUE
+    LINK_FLAGS_RELEASE "/SUBSYSTEM:WINDOWS"
+  )
+  set_source_files_properties(resources.rc PROPERTIES HEADER_FILE_ONLY TRUE)
 endif()
 
 target_link_libraries(${PROJECT_NAME} raylib)
