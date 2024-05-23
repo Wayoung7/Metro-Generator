@@ -8,6 +8,11 @@ A tool for generating metro transit maps
 </h6>
 <br>
 
+## Features
+
+ - Random metro network
+ - Stylized map drawing
+
 ## Download
 
 The project has been uploaded to [itch.io](https://wayoung7.itch.io/metro-generator). You can try the online tool, or download the windows desktop version from itch.io downloading page. The software is totally free. 
